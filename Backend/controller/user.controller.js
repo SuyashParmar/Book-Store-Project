@@ -1,7 +1,12 @@
 import cors from "cors";
-app.use(cors());
+import express from "express";
+// app.use(cors());
 import User from "../model/user.model.js";
 import bcryptjs from "bcryptjs";
+const router = express.Router()
+
+router.use(cors()); // Only applies CORS to routes in this router
+
 export const signup = async(req, res) => {
     try {
         const { fullname, email, password } = req.body;
